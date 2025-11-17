@@ -7,7 +7,15 @@
  * @example ["chase", "uci", "apple", "zebra"] -> ["zebra", "uci", "chase", "apple"]
 */
 function problem(words) {
-    return null;
+    // validate array using Array
+    if (!Array.isArray(words)) return null;
+    
+    // ensure the array is sorted first. .sort sorts alphabetically by default. 
+    // we can use .sort then .reverse to get reverse alphabetical order
+    words.sort();
+    words.reverse();
+
+    return words;
 }
 
 const tests = [

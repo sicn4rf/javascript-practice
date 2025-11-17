@@ -8,11 +8,29 @@
  * @example "racecar" -> true
 */
 function problem(str) {
-    return null;
+    // validate string
+    if (typeof str !== "string") return null;
+
+    let start = 0;
+    let end = str.length - 1;
+
+    while (start < end) {
+        while(!/[a-z]/i.test(str[start]) && start < end) start++;
+
+        while(!/[a-z]/i.test(str[end]) && start < end) end--;
+
+        if(str[start].toLowerCase() !== str[end].toLowerCase()) return false;
+
+        start++;
+        end--;
+    }
+
+    return true;
 }
 
 const tests = [
     ["racecar", true],
+    ["raC.  ECA/R!", true],
     ["icssc", false],
     ["dont nod", true],
     ["Was it a cat I saw", true],

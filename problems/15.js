@@ -11,7 +11,31 @@
  * @example 15 -> [1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz", 11, "Fizz", 13, 14, "FizzBuzz"]
 */
 function problem(number) {
-    return null;
+
+    // validate number
+    if (!Number.isFinite(number)) return null;
+
+    // creat an empty result array
+    let result = [];
+
+    // loop from 1 to number and test 3 cases.
+    for(let elem = 1; elem <= number; elem++) {
+        // Case 0: both divisible by 3 AND 5
+        if (elem % 3 === 0 && elem % 5 === 0) {
+            result.push("FizzBuzz");
+        }
+        else if (elem % 3 === 0) { // Case 1: when Case 0 fails, check if it ONLY divisible by 3.
+            result.push("Fizz");
+        }
+        else if (elem % 5 === 0) { // Case 2: when first two cases fail, check if it is ONLY divisible by 3
+            result.push("Buzz");
+        }
+        else { // Case 3: not divisible by 3 or 5, push element itself.
+            result.push(elem);
+        }
+    }
+
+    return result;
 }
 
 const tests = [

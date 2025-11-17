@@ -7,7 +7,20 @@
  * @example [1, 2, 3] -> 6
 */
 function problem(numbers) {
-    return null;
+    // validate array    
+    if (!Array.isArray(numbers)) return null;
+
+    // create sum variable then loop through input array and add to sum
+    let sum = 0;
+
+    for (const num of numbers) {
+        //validate num
+        if (!Number.isFinite(num)) continue;
+        
+        sum += num;
+    }
+
+    return sum;
 }
 
 const tests = [

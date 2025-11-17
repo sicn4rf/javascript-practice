@@ -7,7 +7,15 @@
  * @example [{name: "Chase", grade: 89}, {name: "Raman", grade: 92}] -> [{name: "Raman", grade: 92}, {name: "Chase", grade: 89}]
 */
 function problem(students) {
-    return null;
+    // validate input is an array
+    if(!Array.isArray(students)) return null;
+
+    // recall .sort((a,b) <- callback function) compares a and b and if return value is >= 1, then put a first, and if output is <= -1, 
+    // then put b first. if it returns 0 then maintain the same order.
+
+    const sorted = students.sort((a, b) => b.grade - a.grade);
+
+    return sorted;
 }
 
 const tests = [

@@ -7,7 +7,13 @@
  * @example [{name: "Chase", grade: 89}, {name: "Raman", grade: 92}, {name: "Peter", grade: 100}] -> ["Peter", "Raman"]
 */
 function problem(students) {
-    return null;
+    // validate arrray
+    if(!Array.isArray(students)) return null;
+
+    return students
+        .filter((elem) => {return elem.grade >= 90;})
+        .map((elem) => {return elem["name"];})
+        .sort();
 }
 
 const tests = [

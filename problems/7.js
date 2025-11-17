@@ -7,7 +7,18 @@
  * @example [1, 2, 3] -> 6
 */
 function problem(numbers) {
-    return null;
+    // validate array
+    if(!Array.isArray(numbers)) return null;
+
+    // create a copy so original array is not affected
+    const copy = numbers.slice().map((w) => {return Number(w)});
+
+    // create sum using reduce function
+    const sum = copy.reduce((res, elem) => {
+        return res + elem;
+    }, 0)
+
+    return sum;
 }
 
 const tests = [

@@ -7,7 +7,19 @@
  * @example [1, 2, 3] -> 6
 */
 function problem(numbers) {
-    return null;
+    // validate array
+    if(!Array.isArray(numbers)) return null;
+    
+    // make sure length is not zero so we dont divide by zero
+    if(numbers.length === 0) return 0;
+    
+    // reduce to get sum 
+    const sum = numbers.reduce(function(res, elem) {
+        return res + elem;
+    }, 0)
+
+    return sum / numbers.length;
+
 }
 
 const tests = [

@@ -7,7 +7,24 @@
  * @example [3,2,3] -> 3
 */
 function problem(numbers) {
-    return null;
+    let freq = {}
+    numbers.forEach(element => {
+        if (!freq.hasOwnProperty(element)) freq[element] = 1;
+        else {
+            freq[element]++;
+        }
+    });
+
+    let max = -Infinity;
+    let res;
+    for(const [key, val] of Object.entries(freq)) {
+        if (val > max) {
+            res = key;
+            max = val;
+        }
+    }
+
+    return Number(res);
 }
 
 const tests = [
